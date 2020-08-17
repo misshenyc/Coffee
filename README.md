@@ -25,14 +25,14 @@ Coffee by M is your go-to source for data visualization related to coffee. From 
 * Data Source: ICO coffee consumption (https://observablehq.com/@d3/bar-chart-race)
 * Functionality: User should be able to see the major countries of coffee consumption and their corresponding speed of growth;
 
-### MVP4 COFFEE GENOME LIFE OF TREES
+### [Bonus] MVP4 COFFEE GENOME LIFE OF TREES
 
 * Data Format: Life of Trees (See example at: https://observablehq.com/@mbostock/tree-of-life)
 * Data Source: World coffee research open Genome tree (https://worldcoffeeresearch.org/news/first-fully-open-access-coffea-arabica-genome-sequence-released/)
 * Functionality: User should be able to tell where coffees are originated from, and identify the path of gene transformation of a given coffee;
 * Risk dependency: Understand gff file and Geno mapping;
 
-### MVP5 STARBUCKS LOCATIONS TRACE
+### [Bonus] MVP5 STARBUCKS LOCATIONS TRACE
 
 * Data Format: Walmart Growth (See example at: https://observablehq.com/@mbostock/walmarts-growth)
 * Data Source: Starbucks Official Site;
@@ -48,11 +48,11 @@ This project will be implemented with the following technologies:
 * D3 for chart animations
 
 ## IMPLEMENTING TIMELINE
-* D1 MVP1 + Website frame
-* D2 MVP2
-* D3 MVP3
-* D4 MVP4 / may switch out with other diagrams if converting gff didn't work
-* d5 MVP5 / may switch out with other diagrams if scrapping didn't work
+* D1 D3 Tutorial
+* D2 MVP1 Chart (Static)
+* D3 MVP1 Chart (Animated)
+* D4 MVP2 Chart (Static + Animated)
+* D5 MVP3 Chart (Static + Animated)
 
 
 
