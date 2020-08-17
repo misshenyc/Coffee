@@ -18,10 +18,10 @@
   <script>
     var ratData = [];
 
-      d3.csv("./src/assets/data/rat-data.csv", function (d) {
+      d3.csv("./src/assets/data/us-coffee.csv", function (d) {
         return {
-          city: d.city, // city name
-          rats: +d.rats // force value of rats to be number (+)
+          year: d.year, // year name
+          coffee: +d.coffee // force value of coffee to be number (+)
         };
       }).then(function (rows, error) { // catch error if error, read rows
         ratData = rows; // set ratData equal to rows
@@ -32,14 +32,14 @@
       // This will contain the script that creates the chart
       function createVisualization() {
         // Width and height of SVG
-        var w = 150;
-        var h = 175;
+        var w = 1200;
+        var h = 500;
 
         // Get length of dataset
         var arrayLength = ratData.length; // length of dataset
-        var maxValue = d3.max(ratData, function (d) { return +d.rats; }); // get maximum
-        var x_axisLength = 100; // length of x-axis in our layout
-        var y_axisLength = 100; // length of y-axis in our layout
+        var maxValue = d3.max(ratData, function (d) { return +d.coffee; }); // get maximum
+        var x_axisLength = 1000; // length of x-axis in our layout
+        var y_axisLength = 300; // length of y-axis in our layout
 
         // Use a scale for the height of the visualization
         var yScale = d3.scaleLinear()
@@ -61,18 +61,18 @@
             return i * (x_axisLength / arrayLength) + 30; // Set x coord
           })
           .attr("y", function (d) {
-            return h - d.rats * (y_axisLength / maxValue); // Set y coord
+            return h - d.coffee * (y_axisLength / maxValue); // Set y coord
           })
           .attr("width", (x_axisLength / arrayLength) - 1)
           .attr("height", function (d) {
-            return d.rats * (y_axisLength / maxValue); // Set height to data value
+            return d.coffee * (y_axisLength / maxValue); // Set height to data value
           })
           .attr("fill", "steelblue")
           .on("mouseover", function (d) {
-            return tooltip.style("visibility", "visible").text(d.city + ": " + d.rats);
+            return tooltip.style("visibility", "visible").text(d.year + ": " + d.coffee);
           })
           .on("mousemove", function (d) {
-            return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px").text(d.city + ": " + d.rats);
+            return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px").text(d.year + ": " + d.coffee);
           })
           .on("mouseout", function (d) {
             return tooltip.style("visibility", "hidden");
@@ -83,25 +83,25 @@
           .attr("x1", 30)
           .attr("y1", 75)
           .attr("x2", 30)
-          .attr("y2", 175)
+          .attr("y2", 575)
           .attr("stroke-width", 2)
           .attr("stroke", "black");
 
         // Create x-axis
         svg.append("line")
           .attr("x1", 30)
-          .attr("y1", 175)
-          .attr("x2", 130)
-          .attr("y2", 175)
+          .attr("y1", 500)
+          .attr("x2", 1500)
+          .attr("y2", 500)
           .attr("stroke-width", 2)
           .attr("stroke", "black");
 
         // y-axis label
         svg.append("text")
           .attr("class", "y label")
-          .attr("text-anchor", "end")
-          .text("No. of Rats")
-          .attr("transform", "translate(20, 20) rotate(-90)")
+          .attr("text-anchor", "middle")
+          .text("Average Coffee Consumption (lbs) Per Person")
+          .attr("transform", "translate(20, 300) rotate(-90)")
           .attr("font-size", "14")
           .attr("font-family", "'Open Sans', sans-serif");
 
