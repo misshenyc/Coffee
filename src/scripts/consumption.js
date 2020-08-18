@@ -12,11 +12,11 @@ d3.csv("src/assets/data/us-coffee.csv", function (d) {
 });
 
 function barchart(selector) {
-    let margin = { top: 10, right: 30, bottom: 90, left: 50 },
-        width = 1300 - margin.left - margin.right,
-        height = 450 - margin.top - margin.bottom;
+    let margin = { top: 100, right: 100, bottom: 100, left: 100 },
+        width = 1200 - margin.left - margin.right,
+        height = 700 - margin.top - margin.bottom;
 
-    let svg = d3.select(selector)
+    let barSVG = d3.select(selector)
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -37,7 +37,7 @@ function barchart(selector) {
         .range([0, width])
         .domain(coffeeData.map(function (d) { return d.year; }))
         .padding(0.15);
-    svg.append("g")
+    barSVG.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .selectAll("text")
@@ -46,19 +46,16 @@ function barchart(selector) {
     let y = d3.scaleLinear()
         .domain([8, 11])
         .range([height, 0]);
-    svg.append("g")
+    barSVG.append("g")
         .call(d3.axisLeft(y));
-    svg.append('text')
+    barSVG.append('text')
         .attr('transform', 'rotate(-90)')
         .style('text-anchor', 'middle')
         .attr('y', 0-margin.left/5*4)
         .attr('x', 0-(height/2))
         .text('Average lbs per person per year')
 
-
-    
-
-    svg.selectAll("bar")
+    barSVG.selectAll("bar")
         .data(coffeeData)
         .enter()
         .append("rect")
@@ -83,8 +80,4 @@ function barchart(selector) {
             .delay(function (d, i) {return i * 50})
             .attr("y", d => { return y(d.coffee); })
             .attr("height", d => { return height - y(d.coffee); })
-
-            
 };
-
-

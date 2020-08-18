@@ -19,8 +19,8 @@ d3.csv("src/assets/data/price.csv", function(d){
 function scatterplot(selector){
     // replay;
     let width = 1200;
-    let height = 720;
-    let margin = ({ top: 20, right: 30, bottom: 30, left: 40 })
+    let height = 700;
+    let margin = ({ top: 100, right: 100, bottom: 100, left: 100 })
     let x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x)).nice()
         .range([margin.left, width - margin.right])
