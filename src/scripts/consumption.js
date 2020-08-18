@@ -11,7 +11,7 @@ d3.csv("src/assets/data/us-coffee.csv", function (d) {
     barchart('#chart1');
 });
 
-function barchart(selector, mouseOver, mouseOut) {
+function barchart(selector) {
     let margin = { top: 10, right: 30, bottom: 90, left: 50 },
         width = 1300 - margin.left - margin.right,
         height = 450 - margin.top - margin.bottom;
@@ -55,12 +55,26 @@ function barchart(selector, mouseOver, mouseOut) {
         .attr('x', 0-(height/2))
         .text('Average lbs per person per year')
 
+
+    
+
     svg.selectAll("bar")
         .data(coffeeData)
         .enter()
         .append("rect")
         .attr("x", function (d) { return x(d.year); })
         .attr("width", x.bandwidth())
+        .on("mouseover", function (d) {
+            return tooltip.style("visibility", "visible").text(d.year + ": " + d.coffee);
+        })
+        .on("mousemove", function (d) {
+            return tooltip.style("top", (d3.event.pageY - 10) + "px")
+                .style("left", (d3.event.pageX + 10) + "px")
+                .text("average coffee/person in " + d.year + ':' + d.coffee )
+        })
+        .on("mouseout", function (d) {
+            return tooltip.style("visibility", "hidden");
+        })
         .attr("fill", "#dda15e")
             .attr("y", d => { return height; })
             .attr("height", 0)
@@ -69,28 +83,8 @@ function barchart(selector, mouseOver, mouseOut) {
             .delay(function (d, i) {return i * 50})
             .attr("y", d => { return y(d.coffee); })
             .attr("height", d => { return height - y(d.coffee); })
-        .on("mouseover", mouseOver())
-        .on("mouseout", mouseOut())
+
+            
 };
 
-function MouseOver(d, i) {
-    d3.select(this).attr('class', 'highlight');
-    d3.select(this)
-        .transition()     
-        .duration(400)
-        .attr('width', x.bandwidth() + 5)
-        .attr("y", function (d) { return y(d.coffee) - 10; })
-        .attr("height", function (d) { return height - y(d.coffee) + 10; });
 
-    g.append("text")
-        .attr('class', 'val')
-        .attr('x', function () {
-            return x(d.year);
-        })
-        .attr('y', function () {
-            return y(d.coffee) - 15;
-        })
-        .text(function () {
-            return [d.coffee]; 
-        });
-}
