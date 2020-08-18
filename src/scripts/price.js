@@ -5,12 +5,12 @@ let data = [];
 d3.csv("src/assets/data/price.csv", function(d){
     return { 
         name: d.year, 
-        x: +d.retail_price, 
-        y: +d.purchase_price 
+        x: +d.purchase_price, 
+        y: +d.retail_price 
     };
 }).then(function(rows){
     data = rows;
-    console.log(data);
+    // console.log(data);
     scatterplot('#chart2')
 });
     // data.x = "Cents per Pound";
