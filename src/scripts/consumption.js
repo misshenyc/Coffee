@@ -1,35 +1,34 @@
-var ratData = [];
+let coffeeData = [];
 
 d3.csv("src/assets/data/us-coffee.csv", function (d) {
     return {
         year: d.year,
         coffee: +d.coffee
     };
-}).then(function (rows, error) {
-    ratData = rows;
-    console.log(ratData);
-    createVisualization('#chart1');
-    createVisualization('#chart2');
+}).then(function (rows) {
+    coffeeData = rows;
+    console.log(coffeeData);
+    barchart('#chart1');
 });
 
-function createVisualization(selector) {
-    var w = 1200;
-    var h = 500;
-    var arrayLength = ratData.length;
-    var maxValue = d3.max(ratData, function (d) { return +d.coffee; });
-    var x_axisLength = 1000;
-    var y_axisLength = 300;
-    var yScale = d3.scaleLinear()
+function barchart(selector) {
+    let w = 1200;
+    let h = 500;
+    let arrayLength = coffeeData.length;
+    let maxValue = d3.max(coffeeData, function (d) { return +d.coffee; });
+    let x_axisLength = 1000;
+    let y_axisLength = 300;
+    let yScale = d3.scaleLinear()
         .domain([0, maxValue])
         .range([0, y_axisLength]);
 
-    var svg = d3.select(selector)
+    let svg = d3.select(selector)
         .append("svg")
         .attr("width", w)
         .attr("height", h);
 
     svg.selectAll("rect")
-        .data(ratData)
+        .data(coffeeData)
         .enter()
         .append("rect")
         .attr("x", function (d, i) {
@@ -77,7 +76,7 @@ function createVisualization(selector) {
         .attr("font-size", "14")
         .attr("font-family", "'Open Sans', sans-serif");
 
-    var tooltip = d3.select(selector)
+    let tooltip = d3.select(selector)
         .append("div")
         .style("position", "absolute")
         .style("font-family", "'Open Sans', sans-serif")
