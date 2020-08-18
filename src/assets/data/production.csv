@@ -1,8 +1,58 @@
 name,parent,value
-Origin,,
-grp1,Origin,12
-grp2,Origin,23
-grp3,Origin,11
-grp4,Origin,40
-grp5,Origin,30
-grp6,Origin,25
+April,,
+Angola,April,40
+Bolivia,April,83
+Brazil,April,"62,925"
+Burundi,April,178
+Ecuador,April,601
+Indonesia,April,"9,418"
+Madagascar,April,396
+Malawi,April,13
+Papua New Guinea,April,930
+Paraguay,April,20
+Peru,April,"4,263"
+Rwanda,April,268
+Timor-Leste,April,139
+Zimbabwe,April,9
+Congo,April,3
+Cuba,April,118
+Dominican Republic,April,431
+Haiti,April,347
+Philippines,April,206
+Tanzania,April,"1,175"
+Zambia,April,20
+Benin,April,0
+Cameroon,April,270
+Central African Republic,April,58
+Colombia,April,"13,858"
+Costa Rica,April,"1,427"
+C™te d'Ivoire,April,"2,294"
+Congo,April,361
+El Salvador,April,761
+Equatorial Guinea,April,0
+Ethiopia,April,"7,776"
+Gabon,April,1
+Ghana,April,15
+Guatemala,April,"4,007"
+Guinea,April,248
+Guyana,April,10
+Honduras,April,"7,328"
+India,April,"5,302"
+Jamaica,April,18
+Kenya,April,930
+Lao,April,503
+Liberia,April,7
+Mexico,April,"4,351"
+Nepal,April,1
+Nicaragua,April,"2,510"
+Nigeria,April,42
+Panama,April,130
+Sierra Leone,April,31
+Sri Lanka,April,36
+Thailand,April,482
+Togo,April,74
+Trinidad & Tobago,April,12
+Uganda,April,"4,704"
+Venezuela,April,525
+Viet Nam,April,"31,174"
+Yemen,April,106

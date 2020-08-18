@@ -21,7 +21,7 @@ d3.csv('src/assets/data/production.csv')
 
         d3.treemap()
             .size([width, height])
-            .padding(10)
+            .padding(5)
             (root)
 
         // console.log(root.leaves())
