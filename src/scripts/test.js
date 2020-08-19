@@ -1,104 +1,39 @@
+const years = d3.range(1790, 2000, 10);
 
+// Helpers.
 
+function nest(data, ...keys) {
+  const nest = d3.nest();
+  for (const key of keys) nest.key(key);
+  function hierarchy({ key, values }, depth) {
+    return {
+      name: key,
+      children: depth < keys.length - 1
+        ? values.map(d => hierarchy(d, depth + 1))
+        : values
+    };
+  }
+  return nest.entries(data).map(d => hierarchy(d, 0));
+}
 
+// Entry point.
+d3.tsv(
+  "src/assets/data/population.tsv",
+  (d, i) => i === 0 ? null : ({ name: d[""], values: years.map(key => +d[key].replace(/,/g, "") || 1e-6) })
+).then(function(statesRows) {
+  d3.csv("src/assets/data/census-regions.csv", null).then(function(regionsRows) {
+    productionSquares(regionsRows, statesRows)
+  });
+});
 
-// read json data
-d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_dendrogram_full.json").then(function(data) {
-    // set the dimensions and margins of the graph
-    var margin = { top: 10, right: 10, bottom: 10, left: 10 },
-        width = 445 - margin.left - margin.right,
-        height = 445 - margin.top - margin.bottom;
+function productionSquares(regions, states) {
+  const regionByState = new Map(regions.map(d => [d.State, d.Region]));
+  const divisionByState = new Map(regions.map(d => [d.State, d.Division]));
+  let data = { years, children: nest(states, d => regionByState.get(d.name), d => divisionByState.get(d.name)) };
 
-    // append the svg object to the body of the page
-    var svg = d3.select("#test")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+  console.log(data);
+  render(data);
+}
 
-  // Give the data to this cluster layout:
-  var root = d3.hierarchy(data).sum(function(d){ return d.value}) // Here the size of each leave is given in the 'value' field in input data
-  console.log(root)
-//   console.log(root.leaves())
-  // Then d3.treemap computes the position of each element of the hierarchy
-  d3.treemap()
-    .size([width, height])
-    .paddingTop(28)
-    .paddingRight(7)
-    .paddingInner(3)      // Padding between each rectangle
-    //.paddingOuter(6)
-    //.padding(20)
-    (root)
-
-  // prepare a color scale
-  var color = d3.scaleOrdinal()
-    .domain(["boss1", "boss2", "boss3"])
-    .range([ "#402D54", "#D18975", "#8FD175"])
-
-  // And a opacity scale
-  var opacity = d3.scaleLinear()
-    .domain([10, 30])
-    .range([.5,1])
-
-  // use this information to add rectangles:
-  svg
-    .selectAll("rect")
-    .data(root.leaves())
-    .enter()
-    .append("rect")
-      .attr('x', function (d) { return d.x0; })
-      .attr('y', function (d) { return d.y0; })
-      .attr('width', function (d) { return d.x1 - d.x0; })
-      .attr('height', function (d) { return d.y1 - d.y0; })
-      .style("stroke", "black")
-      .style("fill", function(d){ return color(d.parent.data.name)} )
-      .style("opacity", function(d){ return opacity(d.data.value)})
-
-  // and to add the text labels
-  svg
-    .selectAll("text")
-    .data(root.leaves())
-    .enter()
-    .append("text")
-      .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-      .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-      .text(function(d){ return d.data.name.replace('mister_','') })
-      .attr("font-size", "19px")
-      .attr("fill", "white")
-
-  // and to add the text labels
-  svg
-    .selectAll("vals")
-    .data(root.leaves())
-    .enter()
-    .append("text")
-      .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-      .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
-      .text(function(d){ return d.data.value })
-      .attr("font-size", "11px")
-      .attr("fill", "white")
-
-  // Add title for the 3 groups
-  svg
-    .selectAll("titles")
-    .data(root.descendants().filter(function(d){return d.depth==1}))
-    .enter()
-    .append("text")
-      .attr("x", function(d){ return d.x0})
-      .attr("y", function(d){ return d.y0+21})
-      .text(function(d){ return d.data.name })
-      .attr("font-size", "19px")
-      .attr("fill",  function(d){ return color(d.data.name)} )
-
-  // Add title for the 3 groups
-  svg
-    .append("text")
-      .attr("x", 0)
-      .attr("y", 14)    // +20 to adjust position (lower)
-      .text("Three group leaders and 14 employees")
-      .attr("font-size", "19px")
-      .attr("fill",  "grey" )
-
-})
+function render(data) {
+}
