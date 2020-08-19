@@ -18,9 +18,9 @@ d3.csv("src/assets/data/price.csv", function(d){
 
 function scatterplot(selector){
     // replay;
-    let width = 1200;
-    let height = 700;
-    let margin = ({ top: 100, right: 100, bottom: 100, left: 100 })
+    let width = 800;
+    let height = 400;
+    let margin = ({ top: 50, right: 100, bottom: 50, left: 100 })
     let x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x)).nice()
         .range([margin.left, width - margin.right])
@@ -45,20 +45,34 @@ function scatterplot(selector){
             .text(data.x)
             .call(halo))
 
-    let yAxis = g => g
+    let yAxis = (g) =>
+      g
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).ticks(null, "$.2f"))
-        .call(g => g.select(".domain").remove())
-        .call(g => g.selectAll(".tick line").clone()
+        .call((g) => g.select(".domain").remove())
+        .call((g) =>
+          g
+            .selectAll(".tick line")
+            .clone()
             .attr("x2", width)
-            .attr("stroke-opacity", 0.1))
-        .call(g => g.select(".tick:last-of-type text").clone()
+            .attr("stroke-opacity", 0.1)
+        )
+        .call((g) =>
+          g
+            .select(".tick:last-of-type text")
+            .clone()
             .attr("x", 4)
             .attr("text-anchor", "start")
             .attr("font-weight", "bold")
             .attr("fill", "black")
             .text(data.y)
-            .call(halo))
+            .call(halo)
+        )
+
+        // .append("text")
+        // .attr("transofrm", "rotate(-90)")
+        // .style("text-anchor", "middle")
+        // .text("Retail Price (USD/LBS)");
 
     function halo(text) {
         text.select(function () { return this.parentNode.insertBefore(this.cloneNode(true), this); })
@@ -116,7 +130,7 @@ function scatterplot(selector){
 
     let label = svg.append("g")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 10)
+        .attr("font-size", 8)
         .selectAll("g")
         .data(data)
         .join("g")
