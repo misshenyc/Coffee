@@ -12,9 +12,9 @@ d3.csv("src/assets/data/us-coffee.csv", function (d) {
 });
 
 function barchart(selector) {
-    let margin = { top: 100, right: 100, bottom: 100, left: 100 },
+    let margin = { top: 50, right: 100, bottom: 50, left: 100 },
         width = 1200 - margin.left - margin.right,
-        height = 700 - margin.top - margin.bottom;
+        height = 500 - margin.top - margin.bottom;
 
     let barSVG = d3.select(selector)
         .append("svg")
@@ -80,4 +80,10 @@ function barchart(selector) {
             .delay(function (d, i) {return i * 50})
             .attr("y", d => { return y(d.coffee); })
             .attr("height", d => { return height - y(d.coffee); })
+
+
 };
+
+function handleClick (){
+    window.location.reload();
+}

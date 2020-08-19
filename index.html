@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="nav.css" type='text/css'>
     <title>CoffeebyM</title>
     <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- <script src='../src/scripts/index.js'></script> -->
     <script src='../src/scripts/consumption.js'></script>
     <script src='../src/scripts/price.js'></script>
     <script src='../src/scripts/production.js'></script>
@@ -22,7 +23,7 @@
 
   <body>
     <section class="landing">
-        <audio controls preload ='auto' autoplay loop>
+        <audio controls preload ='auto' autoplay loop id = 'my_music'>
           <source src="./src/assets/Powfu-Death-Bed-Coffee-for-Your-Head-ft.-Beabadoobee-_-AllNaijaEntertainment.com_.mp3" type="audio/ogg">
         </audio>
         <h1>COFFEE BY M</h1>
@@ -39,11 +40,12 @@
 
       <main>
         <section class="charts" id='production-treemap'>
-          <h3>Where are the coffee coming from?</h3>
+          <h3>Where is the coffee coming from?</h3>
           <div id="production"></div>
         </section>
         <section class="charts" id = 'consumption-bar'>
           <h3>How many lbs of coffee do Americans consume?</h3>
+          <button onclick = 'handleClick()'>Refresh</button>
           <div id="consumption"></div>
         </section>
         <section id = 'price-line'>

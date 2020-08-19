@@ -1,7 +1,5 @@
-const Consumption = require('./scripts/consumption')
 
-
-document.addEventListener('DOMContentLoaded',function(){
-  Consumption();
-
-})
+// window.onload = function(){
+//   document.getElementById('my_music').play();
+//   console.log('play the damn music')
+// }

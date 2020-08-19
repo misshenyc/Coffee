@@ -1,8 +1,8 @@
 d3.csv('src/assets/data/production.csv')
     .then(function(data) {
-        let margin = { top: 100, right: 100, bottom: 100, left: 100 },
+        let margin = { top: 50, right: 100, bottom: 50, left: 100 },
             width = 1200 - margin.left - margin.right,
-            height = 700 - margin.top - margin.bottom;
+            height = 500 - margin.top - margin.bottom;
 
         let treeSVG = d3.select("#production")
             .append("svg")
