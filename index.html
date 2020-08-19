@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav.css" type='text/css'>
     <title>CoffeebyM</title>
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src='../src/scripts/consumption.js'></script>
     <script src='../src/scripts/price.js'></script>
     <script src='../src/scripts/production.js'></script>
-    <script src='../src/scripts/test.js'></script>
     <!-- <script src='../src/scripts/test.js'></script> -->
     <style>
       text {
         font-family: "Open Sans", sans-serif;
-        /* font-size: 12px; */
       }
       rect:hover{
         fill: #bc6c25;
@@ -22,9 +21,41 @@
   </head>
 
   <body>
+      <section class="landing">
+        <h1>COFFEE BY M</h1>
+        <h3>WHERE COFFEE MEETS DATA</h3>
+        <div class="landing-container">
+          <a class="landing-nav" href="#tab-es6">PRODUCTION</a>
+          <a class="landing-nav" href="#tab-flexbox">CONSUMPTION</a>
+          <a class="landing-nav" href="#tab-react">PRICE</a>
+          <a class="landing-nav" href="#tab-angular">GENES</a>
+          <a class="landing-nav" href="#tab-other">LOCATION</a>
+          <span class="landing-nav-menu"></span>
+        </div>
+      </section>
+
+      <main class="et-main">
+        <section class="charts" >
+          <div id="chart3"></div>
+        </section>
+        <section class="charts" >
+          <div id="chart1"></div>
+        </section>
+        <section class="charts" >
+          <div id="chart2"></div>
+        </section>
+        <section class="charts" >
+          <h1>GENES</h1>
+          <h3>coming soon...</h3>
+        </section>
+        <section class="charts" >
+          <h1>LOCATION</h1>
+          <h3>coming soon...</h3>
+        </section>
+      </main>
     <div id ='test'></div>
-    <!-- <div id="chart1"></div>
-    <div id="chart2"></div>  -->
-    <div id="chart3"></div>
+
+
+
   </body>
 </html>

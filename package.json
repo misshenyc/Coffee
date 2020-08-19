@@ -2,6 +2,7 @@
   "name": "js_project_skeleton",
   "version": "1.0.0",
   "description": "skeleton for new JS project",
+  "type": "module",
   "main": "index.js",
   "browserslist": [
     "last 1 version",
@@ -16,7 +17,9 @@
   },
   "author": "mrcjbradley",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@observablehq/stdlib": "^3.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
