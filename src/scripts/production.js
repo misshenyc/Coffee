@@ -12,20 +12,23 @@ d3.csv('src/assets/data/production.csv')
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
 
-        console.log(data)
-
         let root = d3.stratify()
             .id(function (d) { return d.name; })
             .parentId(function (d) { return d.parent; })
             (data);
         root.sum(function (d) { return +d.value })
 
+        let color = d3.scaleOrdinal()
+            .domain(['April','July','October'])
+            .range(["#335c67", "#e09f3e", "#9e2a2b"])
+
         d3.treemap()
             .size([width, height])
             .padding(5)
+            .paddingTop(20)
             (root)
 
-        console.log(root.leaves())
+        // console.log(root.leaves())
 
         treeSVG
             .selectAll("rect")
@@ -37,16 +40,29 @@ d3.csv('src/assets/data/production.csv')
             .attr('width', function (d) { return d.x1 - d.x0; })
             .attr('height', function (d) { return d.y1 - d.y0; })
             .style("stroke", "black")
-            .style("fill", "#69b3a2");
+            .style("fill", function(d) {return color(d.parent.data.name)});
 
         treeSVG
-            .selectAll("text")
+            .selectAll('continent')
+            .data(root.descendants().filter(function(d){return d.depth == 1}))
+            .enter()
+            .append('text')
+                .attr("x", function (d) { return d.x0 + 10})
+                .attr("y", function (d) { return d.y0 + 10 })
+                .text(function (d) { return d.data.name })
+                .attr("font-size", "20px")
+                .attr("fill", function(d){return color(d.data.name)})
+        
+        treeSVG
+            .selectAll("country")
             .data(root.leaves())
             .enter()
             .append("text")
-                .attr("x", function (d) { return d.x0 + 10 })    // +10 to adjust position (more right)
-                .attr("y", function (d) { return d.y0 + 20 })    // +20 to adjust position (lower)
+                .attr("x", function (d) { return d.x0 + 5 })   
+                .attr("y", function (d) { return d.y0 + 10})   
                 .text(function (d) { return d.data.name })
-                .attr("font-size", "15px")
+                .attr("font-size", "12px")
                 .attr("fill", "white")
+
+
 })

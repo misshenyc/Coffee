@@ -1,59 +1,31 @@
 name,parent,value
 Coffee,,
-April,Coffee,
-Angola,April,40
-Bolivia,April,83
-Brazil,April,62,925
-Burundi,April,178
-Ecuador,April,601
-Indonesia,April,9,418
-Madagascar,April,396
-Malawi,April,13
-Papua New Guinea,April,930
-Paraguay,April,20
-Peru,April,4,263
-Rwanda,April,268
-Timor-Leste,April,139
-Zimbabwe,April,9
-July,Coffee,
-Congo,July,3
-Cuba,July,118
-Dominican Republic,July,431
-Haiti,July,347
-Philippines,July,206
-Tanzania,July,1,175
-Zambia,July,20
-October,Coffee,
-Cameroon,October,270
-Central African Republic,October,58
-Colombia,October,13,858
-Costa Rica,October,1,427
-Cote d'Ivoire,October,2,294
-Congo,October,361
-El Salvador,October,761
-Ethiopia,October,7,776
-Gabon,October,1
-Ghana,October,15
-Guatemala,October,4,007
-Guinea,October,248
-Guyana,October,10
-Honduras,October,7,328
-India,October,5,302
-Jamaica,October,18
-Kenya,October,930
-Lao,October,503
-Liberia,October,7
-Mexico,October,4,351
-Nepal,October,1
-Nicaragua,October,2,510
-Nigeria,October,42
-Panama,October,130
-Sierra Leone,October,31
-Sri Lanka,October,36
-Thailand,October,482
-Togo,October,74
-Trinidad & Tobago,October,12
-Uganda,October,4,704
-Venezuela,October,525
-Viet Nam,October,31,174
-Yemen,October,106
+Africa,Coffee,
+Cote d'Ivoire,Africa,2294
+Congo,Africa,361
+Uganda,Africa,4704
+Ethiopia,Africa,7776
+Tanzania,Africa,1175
+Madagascar,Africa,396
+Kenya,Africa,930
+Asia,Coffee,
+Latin America,Coffee,
+Brazil,Latin America,62925
+Ecuador,Latin America,601
+Dominican Republic,Latin America,431
+Haiti,Latin America,347
+Colombia,Latin America,13858
+Costa Rica,Latin America,1427
+El Salvador,Latin America,761
+Peru,Latin America,4263
+Guatemala,Latin America,4007
+Honduras,Latin America,7328
+Mexico,Latin America,4351
+Nicaragua,Latin America,2510
+Venezuela,Latin America,525
+Indonesia,Asia,9418
+Papua New Guinea,Asia,930
+India,Asia,5302
+Lao,Asia,503
+Thailand,Asia,482
+Viet Nam,Asia,31174
