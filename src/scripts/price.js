@@ -18,8 +18,8 @@ d3.csv("src/assets/data/price.csv", function(d){
 
 function scatterplot(selector){
     // replay;
-    let width = 800;
-    let height = 400;
+    let width = 700;
+    let height = 300;
     let margin = ({ top: 50, right: 100, bottom: 50, left: 100 })
     let x = d3.scaleLinear()
         .domain(d3.extent(data, d => d.x)).nice()
@@ -31,17 +31,17 @@ function scatterplot(selector){
 
     let xAxis = g => g
         .attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(x).ticks(width / 100))
+        .call(d3.axisBottom(x).ticks(width / 50))
         .call(g => g.select(".domain").remove())
         .call(g => g.selectAll(".tick line").clone()
             .attr("y2", -height)
-            .attr("stroke-opacity", 0.1))
+            .attr("stroke-opacity", 0.05))
         .call(g => g.append("text")
-            .attr("x", width - 10)
-            .attr("y", -10)
-            .attr("font-weight", "lighter")
+            .attr("x", width - 100)
+            .attr("y", -100)
+            .attr("font-size", "8px")
             .attr("text-anchor", "end")
-            .attr("fill", "black")
+            .attr("fill", "brown")
             .text(data.x)
             .call(halo))
 
@@ -64,7 +64,7 @@ function scatterplot(selector){
             .attr("x", 4)
             .attr("text-anchor", "start")
             .attr("font-weight", "lighter")
-            .attr("fill", "brow")
+            .attr("fill", "brown")
             .text(data.y)
             .call(halo)
         )
@@ -78,7 +78,7 @@ function scatterplot(selector){
         text.select(function () { return this.parentNode.insertBefore(this.cloneNode(true), this); })
             .attr("fill", "none")
             .attr("stroke", "white")
-            .attr("stroke-width", 4)
+            .attr("stroke-width", 5)
             .attr("stroke-linejoin", "round");
     }
 
@@ -143,9 +143,9 @@ function scatterplot(selector){
             let t = d3.select(this);
             switch (d.orient) {
                 case "top": t.attr("text-anchor", "middle").attr("dy", "-0.7em"); break;
-                case "right": t.attr("dx", "0.5em").attr("dy", "0.32em").attr("text-anchor", "start"); break;
+                case "right": t.attr("dx", "0.5em").attr("dy", "0.12em").attr("text-anchor", "start"); break;
                 case "bottom": t.attr("text-anchor", "middle").attr("dy", "1.4em"); break;
-                case "left": t.attr("dx", "-0.5em").attr("dy", "0.32em").attr("text-anchor", "end"); break;
+                case "left": t.attr("dx", "-0.5em").attr("dy", "0.12em").attr("text-anchor", "end"); break;
             }
         })
         .call(halo);

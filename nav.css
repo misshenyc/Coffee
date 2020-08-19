@@ -29,8 +29,16 @@ h3 {
   color: #370617;
   text-align: center; }
 
-.consumption-bar {
-  background: white; }
+#price-line {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background: #eee;
+  text-align: center;
+  border-bottom: #ccc solid 1px;
+  border-top: #ccc solid 1px; }
 
 .landing {
   background-image: url(https://images.unsplash.com/photo-1514163161321-f4f7c2a90296?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
