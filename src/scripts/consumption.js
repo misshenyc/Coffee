@@ -8,7 +8,7 @@ d3.csv("src/assets/data/us-coffee.csv", function (d) {
 }).then(function (rows) {
     coffeeData = rows;
     // console.log(coffeeData);
-    barchart('#chart1');
+    barchart('#consumption');
 });
 
 function barchart(selector) {

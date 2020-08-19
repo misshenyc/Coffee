@@ -4,7 +4,7 @@ d3.csv('src/assets/data/production.csv')
             width = 1200 - margin.left - margin.right,
             height = 700 - margin.top - margin.bottom;
 
-        let treeSVG = d3.select("#chart3")
+        let treeSVG = d3.select("#production")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)

@@ -11,7 +11,7 @@ d3.csv("src/assets/data/price.csv", function(d){
 }).then(function(rows){
     data = rows;
     // console.log(data);
-    scatterplot('#chart2')
+    scatterplot('#price')
 });
     // data.x = "Cents per Pound";
     // data.y = "Dollars per Pound";
