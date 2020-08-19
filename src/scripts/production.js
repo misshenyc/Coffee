@@ -12,11 +12,12 @@ d3.csv('src/assets/data/production.csv')
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
 
+        console.log(data)
+
         let root = d3.stratify()
             .id(function (d) { return d.name; })
             .parentId(function (d) { return d.parent; })
             (data);
-            console.log(root)
         root.sum(function (d) { return +d.value })
 
         d3.treemap()
@@ -24,7 +25,7 @@ d3.csv('src/assets/data/production.csv')
             .padding(5)
             (root)
 
-        // console.log(root.leaves())
+        console.log(root.leaves())
 
         treeSVG
             .selectAll("rect")
