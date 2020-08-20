@@ -1,10 +1,10 @@
-class StickyNavigation {
+export default class StickyNavigation {
   constructor() {
     this.currentId = null;
     this.currentTab = null;
     this.tabContainerHeight = 70;
     let self = this;
-    $(".et-hero-tab").click(function () {
+    $(".landing").click(function () {
       self.onTabClick(event, $(this));
     });
     $(window).scroll(() => {
@@ -35,13 +35,13 @@ class StickyNavigation {
 
   checkTabContainerPosition() {
     let offset =
-      $(".et-hero-tabs").offset().top +
-      $(".et-hero-tabs").height() -
+      $(".landing").offset().top +
+      $(".landing").height() -
       this.tabContainerHeight;
     if ($(window).scrollTop() > offset) {
-      $(".et-hero-tabs-container").addClass("et-hero-tabs-container--top");
+      $(".landing-container").addClass("landing-container--top");
     } else {
-      $(".et-hero-tabs-container").removeClass("et-hero-tabs-container--top");
+      $(".landing-container").removeClass("landing-container--top");
     }
   }
 
@@ -49,7 +49,7 @@ class StickyNavigation {
     let newCurrentId;
     let newCurrentTab;
     let self = this;
-    $(".et-hero-tab").each(function () {
+    $(".landing-nav").each(function () {
       let id = $(this).attr("href");
       let offsetTop = $(id).offset().top - self.tabContainerHeight;
       let offsetBottom =
@@ -76,9 +76,9 @@ class StickyNavigation {
       width = this.currentTab.css("width");
       left = this.currentTab.offset().left;
     }
-    $(".et-hero-tab-slider").css("width", width);
-    $(".et-hero-tab-slider").css("left", left);
+    $(".landing-nav-menu").css("width", width);
+    $(".landing-nav-menu").css("left", left);
   }
 }
 
-new StickyNavigation();
+

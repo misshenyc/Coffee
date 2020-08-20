@@ -1,5 +1,8 @@
+// import StickyNavigation from "./scripts/nav";
 
-// window.onload = function(){
-//   document.getElementById('my_music').play();
-//   console.log('play the damn music')
-// }
+
+// document.addEventListener('DOMContentLoaded', function(){
+    
+// })
+console.log('index.js works!')
+// new StickyNavigation();
