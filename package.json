@@ -2,8 +2,6 @@
   "name": "js_project_skeleton",
   "version": "1.0.0",
   "description": "skeleton for new JS project",
-  "type": "module",
-  "main": "index.js",
   "browserslist": [
     "last 1 version",
     "> 1%",
@@ -13,12 +11,14 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "webpack:watch": "webpack --watch --config webpack.dev.js",
-    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
+    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize",
+    "build": "webpack"
   },
-  "author": "mrcjbradley",
+  "author": "misshenyc",
   "license": "ISC",
   "dependencies": {
-    "@observablehq/stdlib": "^3.3.2"
+    "d3": "^5.16.0",
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

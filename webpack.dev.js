@@ -5,7 +5,7 @@ module.exports = merge(common, {
     mode: "development",
     devtool: "inline-source-map",
     devServer: {
-        contentBase: "./",
+        contentBase: "dist",
         watchContentBase: true,
         open: "Google Chrome"
     }

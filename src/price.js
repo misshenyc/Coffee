@@ -1,23 +1,18 @@
-// d3 = require("d3@5")
+let d3 = require("d3");
 
-let data = [];
+function render() {
+    d3.csv("../assets/data/price.csv", function(d){
+        return { 
+            name: d.year, 
+            x: +d.purchase_price, 
+            y: +d.retail_price 
+        };
+    }).then(function(rows){
+        scatterplot(rows, '#price')
+    });
+}
 
-d3.csv("src/assets/data/price.csv", function(d){
-    return { 
-        name: d.year, 
-        x: +d.purchase_price, 
-        y: +d.retail_price 
-    };
-}).then(function(rows){
-    data = rows;
-    // console.log(data);
-    scatterplot('#price')
-});
-    // data.x = "Cents per Pound";
-    // data.y = "Dollars per Pound";
-
-function scatterplot(selector){
-    // replay;
+function scatterplot(data, selector){
     let width = 700;
     let height = 300;
     let margin = ({ top: 50, right: 100, bottom: 50, left: 100 })
@@ -157,4 +152,4 @@ function scatterplot(selector){
     return svg.node();
 }
 
-
+module.exports = { render };

@@ -1,3 +1,5 @@
+let $ = require("jquery");
+
 export default class StickyNavigation {
   constructor() {
     this.currentId = null;
@@ -80,5 +82,3 @@ export default class StickyNavigation {
     $(".landing-nav-menu").css("left", left);
   }
 }
-
-

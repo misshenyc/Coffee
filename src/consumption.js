@@ -1,17 +1,17 @@
-let coffeeData = [];
+let d3 = require("d3");
 
-d3.csv("src/assets/data/us-coffee.csv", function (d) {
-    return {
-        year: d.year,
-        coffee: +d.coffee
-    };
-}).then(function (rows) {
-    coffeeData = rows;
-    // console.log(coffeeData);
-    barchart('#consumption');
-});
+function render() {
+    d3.csv("../assets/data/us-coffee.csv", function (d) {
+        return {
+            year: d.year,
+            coffee: +d.coffee
+        };
+    }).then(function (rows) {
+        barchart(rows, '#consumption');
+    });
+}
 
-function barchart(selector) {
+function barchart(data, selector) {
     let margin = { top: 50, right: 100, bottom: 50, left: 100 },
         width = 1200 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
@@ -35,7 +35,7 @@ function barchart(selector) {
 
     let x = d3.scaleBand()
         .range([0, width])
-        .domain(coffeeData.map(function (d) { return d.year; }))
+        .domain(data.map(function (d) { return d.year; }))
         .padding(0.15);
     barSVG.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -56,7 +56,7 @@ function barchart(selector) {
         .text('Average lbs per person per year')
 
     barSVG.selectAll("bar")
-        .data(coffeeData)
+        .data(data)
         .enter()
         .append("rect")
         .attr("x", function (d) { return x(d.year); })
@@ -84,6 +84,4 @@ function barchart(selector) {
 
 };
 
-function handleClick (){
-    window.location.reload();
-}
+module.exports = { render };

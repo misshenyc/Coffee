@@ -3,14 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="nav.css" type='text/css'>
+    <link rel="stylesheet" href="styles/nav.css" type='text/css'>
     <title>CoffeebyM</title>
-    <script src="https://d3js.org/d3.v5.js"></script>
-    <script src='./src/index.js'></script>
-    <script src='./src/scripts/consumption.js'></script>
-    <script src='./src/scripts/price.js'></script>
-    <script src='./src/scripts/production.js'></script>
-    <!-- <script src='../src/scripts/test.js'></script> -->
+    <script src='main.js'></script>
     <style>
       text {
         font-family: "Open Sans", sans-serif;
@@ -24,7 +19,7 @@
   <body>
     <section class="landing">
         <audio controls preload ='auto' autoplay loop id = 'my_music'>
-          <source src="./src/assets/Powfu-Death-Bed-Coffee-for-Your-Head-ft.-Beabadoobee-_-AllNaijaEntertainment.com_.mp3" type="audio/ogg">
+          <source src="assets/Powfu-Death-Bed-Coffee-for-Your-Head-ft.-Beabadoobee-_-AllNaijaEntertainment.com_.mp3" type="audio/ogg">
         </audio>
         <h1>COFFEE BY M</h1>
         <h3>WHERE COFFEE MEETS DATA</h3>
@@ -45,12 +40,12 @@
         </section>
         <section class="charts" id = 'consumption-bar'>
           <h3>How many lbs of coffee do Americans consume?</h3>
-          <button onclick = 'handleClick()'>Refresh</button>
+        <button onclick = '(function() {window.location.reload(); })();'>Refresh</button>
           <div id="consumption"></div>
         </section>
         <section id = 'price-line'>
           <h3>Less than 10% of $$ went to growers</h3>
-          <button onclick='handleClick()'>Refresh</button>
+          <button onclick='(function() {window.location.reload(); })();'>Refresh</button>
           <div id="price"></div>
         </section>
         <section class="charts" id = 'life-tree'>
@@ -63,10 +58,5 @@
         </section>
       </main>
     <div id ='test'></div>
-
-
-
   </body>
 </html>
-
-

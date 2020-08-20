@@ -1,6 +1,4 @@
-// import { Scrubber } from "@mbostock/scrubber";
-// import { Scrubber } from "./scrubber"
-// const Scrubber = require('./scrubber');
+let d3 = require("d3");
 
 const years = d3.range(1790, 2000, 10);
 
@@ -22,10 +20,10 @@ function nest(data, ...years) {
 
 // Entry point - read data
 d3.tsv(
-  "src/assets/data/population.tsv",
+  "../assets/data/population.tsv",
   (d, i) => i === 0 ? null : ({ name: d[""], values: years.map(key => +d[key].replace(/,/g, "") || 1e-6) })
 ).then(function(statesRows) {
-  d3.csv("src/assets/data/census-regions.csv", null).then(function(regionsRows) {
+  d3.csv("../assets/data/census-regions.csv", null).then(function(regionsRows) {
     productionSquares(regionsRows, statesRows)
   });
 });

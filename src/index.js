@@ -1,8 +1,9 @@
-// import StickyNavigation from "./scripts/nav";
+let production = require("./production");
+let price = require("./price");
+let consumption = require("./consumption");
+import StickyNavigation from './nav';
 
-
-// document.addEventListener('DOMContentLoaded', function(){
-    
-// })
-console.log('index.js works!')
-// new StickyNavigation();
+production.render();
+price.render();
+consumption.render();
+new StickyNavigation();
