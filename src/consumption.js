@@ -1,7 +1,7 @@
 let d3 = require("d3");
 
 function render() {
-    d3.csv("../assets/data/us-coffee.csv", function (d) {
+    d3.csv("./assets/data/us-coffee.csv", function (d) {
         return {
             year: d.year,
             coffee: +d.coffee
