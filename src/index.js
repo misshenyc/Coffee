@@ -10,7 +10,6 @@ consumption.render();
 // race.render();
 // test.render()
 
-
 document.addEventListener('DOMContentLoaded', function(){
     window.addEventListener('scroll', myFunction);
     let navbar = document.getElementById("navbar");
@@ -23,5 +22,3 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
 })
-
-
