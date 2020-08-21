@@ -8,7 +8,6 @@ a {
 .charts {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   height: 100vh;
   position: relative;
@@ -16,6 +15,12 @@ a {
   text-align: center;
   border-bottom: #ccc solid 1px;
   border-top: #ccc solid 1px; }
+
+.landing {
+  justify-content: space-between; }
+
+.charts {
+  justify-content: center; }
 
 audio {
   padding-top: 100px; }
