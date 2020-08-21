@@ -22,9 +22,6 @@ a {
 .charts {
   justify-content: center; }
 
-audio {
-  padding-top: 100px; }
-
 h1 {
   font-size: 32px;
   letter-spacing: 16px; }
@@ -50,7 +47,12 @@ h3 {
 
 .landing {
   background-image: url(https://images.unsplash.com/photo-1514163161321-f4f7c2a90296?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 #navbar {
   display: flex;
