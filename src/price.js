@@ -1,7 +1,7 @@
 let d3 = require("d3");
 
 function render() {
-    d3.csv("../assets/data/price.csv", function(d){
+    d3.csv("./assets/data/price.csv", function(d){
         return { 
             name: d.year, 
             x: +d.purchase_price, 

@@ -44,7 +44,7 @@
 
 //   let year = 2000;
 
-//   d3.csv("../assets/data/test.csv").then(function (data) {
+//   d3.csv("./assets/data/test.csv").then(function (data) {
 //     //if (error) throw error;
 
 //     console.log(data);
@@ -308,10 +308,10 @@
 
 // // Entry point - read data
 // d3.tsv(
-//   "../assets/data/population.tsv",
+//   "./assets/data/population.tsv",
 //   (d, i) => i === 0 ? null : ({ name: d[""], values: years.map(key => +d[key].replace(/,/g, "") || 1e-6) })
 // ).then(function(statesRows) {
-//   d3.csv("../assets/data/census-regions.csv", null).then(function(regionsRows) {
+//   d3.csv("./assets/data/census-regions.csv", null).then(function(regionsRows) {
 //     productionSquares(regionsRows, statesRows)
 //   });
 // });

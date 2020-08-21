@@ -1,7 +1,7 @@
 let d3 = require('d3');
 
 function render(){
-    d3.csv("../assets/data/productionrace.csv")
+    d3.csv("./assets/data/productionrace.csv")
         .then(function (data) {
             let margin = { top: 80, right: 0, bottom: 5, left: 0 },
             width = 960,
