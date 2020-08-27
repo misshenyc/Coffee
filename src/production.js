@@ -61,10 +61,10 @@ function render() {
                 .data(root.leaves())
                 .enter()
                 .append("text")
-                    .attr("x", function (d) { return d.x0 + 5 })   
-                    .attr("y", function (d) { return d.y0 + 10})   
+                    // .attr("x", function (d) { return d.x0 + 50})   
+                    // .attr("y", function (d) { return d.y0 + 50})   
                     .text(function (d) { return d.data.name })
-                    .attr("font-size", "12px")
+                    .attr("font-size", "20px")
                     .attr("fill", "white")
     });
 }
